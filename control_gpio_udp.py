@@ -24,7 +24,7 @@ def configurar_GPIO():
 def leer_configuracion():
 	global direccionIP, puerto, pin_rele
 	
-	with open('/home/pi/projects/Control_GPIO_UDP/Control_Rele_UDP_Rpi/config.cfg', 'r') as fichero_config:
+	with open('/home/pi/Control_GPIO_UDP/config.cfg', 'r') as fichero_config:
 		for linea in fichero_config:
 			tokens = linea.split('=')
 			
