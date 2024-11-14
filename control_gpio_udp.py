@@ -2,6 +2,9 @@ import RPi.GPIO as GPIO
 import socket
 from io import open
 
+#https://raspberrytips.com/autostart-a-program-on-boot/
+#https://unix.stackexchange.com/questions/20357/how-can-i-make-a-script-in-etc-init-d-start-at-boot
+
 #Valores por defecto del pin, IP y puerto
 pin_rele = 11 #Pin 11 de la placa de GPIO, serigrafiado como #17
 
@@ -21,7 +24,7 @@ def configurar_GPIO():
 def leer_configuracion():
 	global direccionIP, puerto, pin_rele
 	
-	with open('config.cfg', 'r') as fichero_config:
+	with open('/home/pi/projects/Control_GPIO_UDP/Control_Rele_UDP_Rpi/config.cfg', 'r') as fichero_config:
 		for linea in fichero_config:
 			tokens = linea.split('=')
 			

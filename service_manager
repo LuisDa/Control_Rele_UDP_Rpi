@@ -1,0 +1,34 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides: MyService
+# Required-Start:    $all
+# Required-Stop: 
+# Default-Start:     5 
+# Default-Stop:      6 
+# Short-Description: Your service description
+### END INIT INFO
+
+start () {
+	python /home/pi/Control_GPIO_UDP/control_gpio_udp.py
+}
+
+stop () {
+	python /home/pi/Control_GPIO_UDP/prueba_servidor.py "PARAR"
+}
+
+case "$1" in 
+    start)
+       start
+       ;;
+    stop)
+       stop
+       ;;
+    restart)
+       stop
+       start
+       ;;
+    status)       
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
+esac
